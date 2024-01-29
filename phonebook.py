@@ -32,11 +32,13 @@ def check_directory(filename: str):
             data.write("")   
 
 def copy_line(source_file:str, destination_file:str, line_number:int):
+    """
+    Копирует строку из файла в файл
+    """
     with open(source_file, 'r', encoding="utf-8") as source:
         lines = source.readlines()
         if line_number <= len(lines):
             line_to_copy = lines[line_number - 1]
-
             with open(destination_file, 'a', encoding="utf-8") as destination:
                 destination.write(line_to_copy)
             print(f"Строка {line_number} успешно скопирована из {source_file} в {destination_file}.")
